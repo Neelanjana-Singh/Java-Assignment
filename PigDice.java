@@ -40,12 +40,18 @@ public class PigDice {
                         }
                         
                     }
-                } else if (choice.equals("h")) {
+                } 
+                else if (choice.equals("h")) {
                     total += turnScore;
                     turnOver = true;
                     System.out.println("Score for turn: " + turnScore);
                     System.out.println("Total score: " + total);
                 }
+                else
+                {
+                	System.out.println("Invalid choice:");
+                }
+                
             }
 
             turnCount++;
