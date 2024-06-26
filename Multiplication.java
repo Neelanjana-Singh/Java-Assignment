@@ -6,58 +6,53 @@ public class Multiplication {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-  
-        
-        System.out.println("Enter number of rows of the first array:");
+
+        System.out.println("Enter number of rows of the first matrix:");
         int row1 = scanner.nextInt();
-        System.out.println("Enter number of columns of the first array:");
-        int col1 = scanner.nextInt();
-        int[][] array1 = new int[row1][col1];
-        System.out.println("Enter Number of rows of the second array:");
+        System.out.println("Enter number of columns of the first matrix:");
+        int column1 = scanner.nextInt();
+        int[][] matrix1 = new int[row1][column1];
+
+        System.out.println("Enter number of rows of the second matrix:");
         int row2 = scanner.nextInt();
-        System.out.println("Enter the number of columns of the second array:");
-        int col2 = scanner.nextInt();
-        int[][] array2 = new int[row1][col1];
-        if (row1 <= 0 || col1 <= 0 || row2<=0 || col2<=0 || col1 != row2) {
+        System.out.println("Enter number of columns of the second matrix:");
+        int column2 = scanner.nextInt();
+        int[][] matrix2 = new int[row2][column2];
+
+        if (row1 <= 0 || column1 <= 0 || row2 <= 0 || column2 <= 0 || column1 != row2) {
             System.out.println("Multiplication not possible.");
-            
-        }
-        else
-        {
-        System.out.println("Enter  elements of the first array:");
-        for (int i = 0; i < row1; i++) {
-            for (int j = 0; j < col1; j++) {
-                array1[i][j] = scanner.nextInt();
-            }
-        }
 
-        System.out.println("Enter the elements of the second array:");
-        for (int i = 0; i < row2; i++) {
-            for (int j = 0; j < col2; j++) {
-                array2[i][j] = scanner.nextInt();
-            }
-        }
-
-       
-       
-        
-        int[][] result = new int[row1][col2];
-        for (int i = 0; i < row1; i++) {
-            for (int j = 0; j < col2; j++) {
-                for (int k = 0; k < col1; k++) {
-                    result[i][j] += array1[i][k] * array2[k][j];
+        } else {
+            System.out.println("Enter elements of the first matrix:");
+            for (int i = 0; i < row1; i++) {
+                for (int j = 0; j < column1; j++) {
+                    matrix1[i][j] = scanner.nextInt();
                 }
             }
-        }
 
-        
-        System.out.println("Resultant array after multiplication:");
-        for (int i = 0; i < row1; i++) {
-            for (int j = 0; j < col2; j++) {
-                System.out.print(result[i][j] + " ");
+            System.out.println("Enter the elements of the second matrix:");
+            for (int i = 0; i < row2; i++) {
+                for (int j = 0; j < column2; j++) {
+                    matrix2[i][j] = scanner.nextInt();
+                }
             }
-            System.out.println();
-        }
+
+            int[][] result = new int[row1][column2];
+            for (int i = 0; i < row1; i++) {
+                for (int j = 0; j < column2; j++) {
+                    for (int k = 0; k < column1; k++) {
+                        result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+
+            System.out.println("Resultant matrix after multiplication:");
+            for (int i = 0; i < row1; i++) {
+                for (int j = 0; j < column2; j++) {
+                    System.out.print(result[i][j] + " ");
+                }
+                System.out.println();
+            }
         }
 
         scanner.close();
